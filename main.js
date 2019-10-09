@@ -38,7 +38,7 @@ const batch = [
   mystery5
 ];
 
-// Add your functions below:
+// check to see if the card is valid
 
 function validateCred(arr) {
   let total = 0;
@@ -56,9 +56,10 @@ function validateCred(arr) {
   return total % 10 === 0;
 }
 
-// console.log("valid", validateCred(valid1));
-// console.log("invalid", validateCred(invalid1));
+console.log("valid", validateCred(valid1)); // should return true
+console.log("invalid", validateCred(invalid1)); // should return false
 
+// check nested array to find which cards are invalid
 function findInvalidCards(cardsArray) {
   let invalidCards = [];
   for (i = 0; i < cardsArray.length; i++) {
@@ -70,12 +71,12 @@ function findInvalidCards(cardsArray) {
   return invalidCards;
 }
 
-// console.log("find invalid: valid", findInvalidCards([valid1, valid2, valid3]));
-// console.log(
-//   "find invalid: invalid",
-//   findInvalidCards([invalid1, valid1, invalid2, valid2])
-// );
-// console.log("find invalid: batch", findInvalidCards(batch));
+console.log("find invalid: valid", findInvalidCards([valid1, valid2, valid3])); // should return empty array
+console.log(
+  "find invalid: invalid",
+  findInvalidCards([invalid1, valid1, invalid2, valid2]) // should return invalid cards
+);
+console.log("find invalid: batch", findInvalidCards(batch)); // should return which cards are invalid
 
 function idInvalidCardCompanies(invalidCards) {
   const companies = [];
@@ -95,6 +96,6 @@ function idInvalidCardCompanies(invalidCards) {
   return companies;
 }
 
-console.log(idInvalidCardCompanies([invalid1]));
-console.log(idInvalidCardCompanies([invalid2]));
-console.log(idInvalidCardCompanies(batch));
+console.log(idInvalidCardCompanies([invalid1])); // should return mastercard
+console.log(idInvalidCardCompanies([invalid2])); // should return visa
+console.log(idInvalidCardCompanies(batch)); // should return which companies sent invalid cards with no repeated companies
